@@ -1,10 +1,10 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 from pycaptcha import __version__, __author__, __email__, __license__
 
-install_requires = [
-    "",
-]
+
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
 
 with open("README.md", encoding='utf-8') as f:
     readme = f.read()
@@ -22,8 +22,11 @@ setup(
     author=__author__,
     author_email=__email__,
     url="https://github.com/bierschi/pycaptcha",
-    packages=["pycaptcha"],
-    install_requires=install_requires,
+    packages=find_packages(),
+    data_files=[
+        'requirements.txt', 'LICENSE', 'CHANGELOG.rst'
+    ],
+    install_requires=required,
     keywords=["python", "captcha", "recaptcha", "bots", "captchasolver"],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
