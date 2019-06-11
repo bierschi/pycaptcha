@@ -1,13 +1,11 @@
 from pycaptcha.wordcaptcha.word_captcha import WordCaptcha
 from pycaptcha.mathcaptcha.math_captcha import MathCaptcha
-from pycaptcha.recaptcha.recaptcha import ReCaptcha
+from pycaptcha.recaptcha.audio import AudioRecaptcha
+from pycaptcha.recaptcha.image import ImageRecaptcha
 
 
 def main():
     print("test")
-    WordCaptcha()
-    MathCaptcha()
-    ReCaptcha()
 
 
 if __name__ == '__main__':
