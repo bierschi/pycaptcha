@@ -1,4 +1,5 @@
 from setuptools import setup, find_packages
+from scripts.geckodriver import GeckoDriver
 
 from pycaptcha import __version__, __author__, __email__, __license__
 
@@ -23,9 +24,7 @@ setup(
     author_email=__email__,
     url="https://github.com/bierschi/pycaptcha",
     packages=find_packages(),
-    data_files=[
-        'requirements.txt', 'LICENSE', 'CHANGELOG.rst'
-    ],
+    include_package_data=True,
     install_requires=required,
     keywords=["python", "captcha", "recaptcha", "bots", "captchasolver"],
     classifiers=[
@@ -55,3 +54,7 @@ setup(
     },
     zip_safe=True,
 )
+
+if not GeckoDriver().is_installed():
+    print("install Geckodriver ...")
+    GeckoDriver(version='v0.24.0', platform='linux64').download()

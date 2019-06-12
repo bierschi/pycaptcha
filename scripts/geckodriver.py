@@ -39,8 +39,8 @@ class GeckoDriver:
 
         :return: boolean, True if geckodriver is already installed
         """
-        cmd = shutil.which("geckodriver")
-        if cmd is None:
+
+        if shutil.which("geckodriver") is None:
             return False
         else:
             return True
@@ -48,10 +48,8 @@ class GeckoDriver:
     def download(self):
         """downloads the geckodriver tarball
         """
-        # check if file already available
         try:
             loc_filename, headers = urllib.request.urlretrieve(self.geckodriver_download_url, filename=self.current_dir + '/' + self.filename)
-            print(headers)
             self.__extract()
             self.__add_to_path()
         except Exception as e:
@@ -88,7 +86,6 @@ class GeckoDriver:
 
 
 if __name__ == '__main__':
-    gecko = GeckoDriver()
+    if GeckoDriver().is_installed():
+        GeckoDriver().download()
 
-    gecko.download()
-    #gecko.add_to_path()
