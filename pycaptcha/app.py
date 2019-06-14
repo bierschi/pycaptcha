@@ -6,6 +6,7 @@ from pycaptcha.recaptcha.image import ImageRecaptcha
 
 def main():
     print("test")
+    AudioRecaptcha()
 
 
 if __name__ == '__main__':
