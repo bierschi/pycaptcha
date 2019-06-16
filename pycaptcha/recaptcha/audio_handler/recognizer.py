@@ -4,11 +4,12 @@ from requests import Request
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
+
 from pycaptcha.recaptcha.audio_handler.audio_data import AudioData, AudioSource
 from pycaptcha.utils.exceptions import UnknownValueError, RequestError
 
 
-class Recognizer():
+class Recognizer:
 
     def __init__(self):
         """ Creates a new ``Recognizer`` instance for converting
@@ -36,7 +37,8 @@ class Recognizer():
                     offset_reached = True
 
             buffer = source.stream.read(source.CHUNK)
-            if len(buffer) == 0: break
+            if len(buffer) == 0:
+                break
 
             if offset_reached or not offset:
                 elapsed_time += seconds_per_buffer
@@ -77,8 +79,8 @@ class Recognizer():
             "lang": language,
             "key": key,
         }))
-        request = Request(url, data=flac_data,
-                          headers={"Content-Type": "audio/x-flac; rate={}".format(audio_data.sample_rate)})
+
+        request = Request(url, data=flac_data, headers={"Content-Type": "audio/x-flac; rate={}".format(audio_data.sample_rate)})
 
         # obtain audio transcription results
         try:
@@ -100,7 +102,8 @@ class Recognizer():
                 break
 
         # return results
-        if show_all: return actual_result
+        if show_all:
+            return actual_result
         if not isinstance(actual_result, dict) or len(
             actual_result.get("alternative", [])) == 0: raise UnknownValueError()
 
