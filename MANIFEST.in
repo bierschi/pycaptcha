@@ -2,5 +2,4 @@ include requirements.txt
 include LICENSE
 include CHANGELOG.rst
 include README.md
-include scripts/geckodriver.py
 include MANIFEST.in

@@ -1,0 +1,1 @@
+from pycaptcha.mathcaptcha.math_captcha import MathCaptcha

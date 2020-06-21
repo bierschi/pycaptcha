@@ -1,7 +1,7 @@
 from pycaptcha.captcha import Captcha
 from pycaptcha.recaptcha.audio_handler.audio_data import AudioFile
 from pycaptcha.recaptcha.audio_handler.recognizer import Recognizer
-from definitions import ROOT_DIR
+from pycaptcha import ROOT_DIR
 
 
 class AudioRecaptcha(Captcha):

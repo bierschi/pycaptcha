@@ -1,0 +1,1 @@
+from pycaptcha.wordcaptcha.word_captcha import WordCaptcha

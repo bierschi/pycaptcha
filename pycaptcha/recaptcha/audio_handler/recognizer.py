@@ -6,7 +6,7 @@ from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
 
 from pycaptcha.recaptcha.audio_handler.audio_data import AudioData, AudioSource
-from pycaptcha.utils.exceptions import UnknownValueError, RequestError
+from pycaptcha.exceptions import UnknownValueError, RequestError
 
 
 class Recognizer:

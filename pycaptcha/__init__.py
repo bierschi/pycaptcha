@@ -5,7 +5,11 @@ __author__ = "Christian Bierschneider"
 __email__ = "christian.bierschneider@web.de"
 __license__ = "MIT"
 
-from pycaptcha.wordcaptcha.word_captcha import WordCaptcha
-from pycaptcha.mathcaptcha.math_captcha import MathCaptcha
-from pycaptcha.recaptcha.audio import AudioRecaptcha
-from pycaptcha.recaptcha.image import ImageRecaptcha
+import os
+
+from pycaptcha.captcha import Captcha
+from pycaptcha.wordcaptcha import WordCaptcha
+from pycaptcha.mathcaptcha import MathCaptcha
+
+
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
